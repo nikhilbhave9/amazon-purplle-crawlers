@@ -11,7 +11,6 @@ class ProductSpider(scrapy.Spider):
 
     def parse(self, response):
         # prod_list = response.xpath('//div[@id="listing"]/div[@_ngcontent-plr-c56]/div') prd-lstng
-        yield from json.loads(response.text)['data']
         prod_list = response.xpath('//div[contains(@class, "prd-lstng")]')
         for prod in prod_list:
             item = PurpllecrawlerItem()
